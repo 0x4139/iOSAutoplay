@@ -36,8 +36,6 @@ var canvas = document.getElementById('videoCanvas');
 var player = new jsmpeg('out.mpg', {canvas: canvas, autoplay: true, loop: true});
 
 
-
-
 var mpegLoaded = function( player ) {
     console.log('Loaded', player);
 
@@ -50,10 +48,6 @@ var mpegLoaded = function( player ) {
     console.log('Duration: '+duration+' seconds ('+frames+' frames)');
 };
 
-var player = new jsmpeg('out.mpg', {onload:mpegLoaded});
-
-// If you don't use 'autoplay' and don't explicitly call .play(), you can get individual
-// video frames (a canvas element) like so:
 var frame = null;
 while( (frame = player.nextFrame()) ) {
     someOtherCanvasContext.drawImage(frame, 0, 0);
